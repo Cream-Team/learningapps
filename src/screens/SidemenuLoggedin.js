@@ -1,78 +1,80 @@
 import React, { Component } from "react";
-import { StyleSheet, View, StatusBar, Image } from "react-native";
+import { Dimensions, StyleSheet, View, StatusBar, Image } from "react-native";
 import Svg, { Ellipse } from "react-native-svg";
 import Icon from "react-native-vector-icons/Ionicons";
 
-function SidemenuLoggedin(props) {
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <View style={styles.image2Stack}>
-        <Image
-          source={require("../assets/images/Splashbackground2.png")}
-          resizeMode="cover"
-          style={styles.image2}
-        ></Image>
-        <Image
-          source={require("../assets/images/artworks-000342067074-v8r2ax-t500x500-min-min1.png")}
-          resizeMode="contain"
-          style={styles.image}
-        ></Image>
-        <View style={styles.lououtbtn}>
-          <View style={styles.ellipseStack}>
-            <Svg viewBox="0 0 46.58 46.58" style={styles.ellipse}>
-              <Ellipse
-                stroke="rgba(230, 230, 230,1)"
-                strokeWidth={0}
-                fill="rgba(230, 230, 230,1)"
-                cx={23}
-                cy={23}
-                rx={23}
-                ry={23}
-              ></Ellipse>
-            </Svg>
-            <Icon name="ios-log-out" style={styles.icon}></Icon>
+const { width, height } = Dimensions.get('window'); 
+
+class SidemenuLoggedin extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar  />
+        <View style={styles.image2Stack}>
+          <Image
+            source={require("../assets/images/Splashbackground2.png")}
+            resizeMode="cover"
+            style={styles.image2}
+          ></Image>
+          <Image
+            source={require("../assets/images/artworks-000342067074-v8r2ax-t500x500-min-min1.png")}
+            resizeMode="contain"
+            style={styles.image}
+          ></Image>
+          <View style={styles.lououtbtn}>
+            <View style={styles.ellipseStack}>
+              <Svg viewBox="0 0 46.58 46.58" style={styles.ellipse}>
+                <Ellipse
+                  stroke="rgba(230, 230, 230,1)"
+                  strokeWidth={0}
+                  fill="rgba(230, 230, 230,1)"
+                  cx={23}
+                  cy={23}
+                  rx={23}
+                  ry={23}
+                ></Ellipse>
+              </Svg>
+              <Icon name="ios-log-out" style={styles.icon}></Icon>
+            </View>
           </View>
-        </View>
-        <View style={styles.group}>
-          <View style={styles.image3Stack}>
-            <Image
-              source={require("../assets/images/button-011.png")}
-              resizeMode="contain"
-              style={styles.image3}
-            ></Image>
-            <Image
-              source={require("../assets/images/button-011.png")}
-              resizeMode="contain"
-              style={styles.image4}
-            ></Image>
+          <View style={styles.group}>
+            <View style={styles.image3Stack}>
+              <Image
+                source={require("../assets/images/button-011.png")}
+                resizeMode="contain"
+                style={styles.image3}
+              ></Image>
+              <Image
+                source={require("../assets/images/button-011.png")}
+                resizeMode="contain"
+                style={styles.image4}
+              ></Image>
+            </View>
           </View>
         </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "rgba(130,211,196,1)"
   },
   image2: {
-    top: 25,
-    width: 360,
-    height: 740,
+    width: width,
+    height: height,
     position: "absolute",
     left: 0
   },
   image: {
-    top: 0,
-    left: 45,
-    width: 169,
-    height: 180,
+    top: height/10,
+    left: width/4,
+    width: width/2,
+    height: height/5,
     position: "absolute"
   },
   lououtbtn: {
@@ -83,14 +85,14 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   ellipse: {
-    top: 0,
+    top: height/8,
     left: 0,
     width: 47,
     height: 47,
     position: "absolute"
   },
   icon: {
-    top: 5,
+    top: height/8+4,
     left: 9,
     position: "absolute",
     color: "rgba(128,128,128,1)",
@@ -110,15 +112,15 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   image3: {
-    top: 0,
-    left: 0,
+    top: height/10,
+    left: -width/4,
     width: 274,
     height: 102,
     position: "absolute"
   },
   image4: {
-    top: 51,
-    left: 0,
+    top: height/6,
+    left: -width/4,
     width: 274,
     height: 200,
     position: "absolute"
@@ -126,12 +128,11 @@ const styles = StyleSheet.create({
   image3Stack: {
     width: 274,
     height: 251,
-    marginTop: 49
+    marginTop: 49,
   },
   image2Stack: {
-    width: 454,
-    height: 765,
-    marginLeft: -45
+    width: width,
+    height: height,
   }
 });
 

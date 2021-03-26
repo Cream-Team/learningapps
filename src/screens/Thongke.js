@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import MainAppFooter from "../components/MainAppFooter";
 
-function Thongke(props) {
-  return (
-    <View style={styles.container}>
-      <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
-    </View>
-  );
+class Thongke extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

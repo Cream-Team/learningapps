@@ -1,15 +1,19 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { Dimensions ,StyleSheet, View } from "react-native";
 import CupertinoHeaderWithActionButton from "../components/CupertinoHeaderWithActionButton";
 
-function Videos(props) {
-  return (
-    <View style={styles.container}>
-      <CupertinoHeaderWithActionButton
-        style={styles.cupertinoHeaderWithActionButton}
-      ></CupertinoHeaderWithActionButton>
-    </View>
-  );
+const { width, height } = Dimensions.get('window'); 
+
+class Videos extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <CupertinoHeaderWithActionButton
+          style={styles.cupertinoHeaderWithActionButton}
+        ></CupertinoHeaderWithActionButton>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -17,9 +21,9 @@ const styles = StyleSheet.create({
     flex: 1
   },
   cupertinoHeaderWithActionButton: {
-    width: 375,
+    width: width,
     height: 44,
-    marginTop: 23,
+    marginTop: height*0.04,
     alignSelf: "center"
   }
 });

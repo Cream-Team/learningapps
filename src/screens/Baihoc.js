@@ -1,25 +1,29 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, Text } from "react-native";
+import { Dimensions, StyleSheet, View, ScrollView, Text } from "react-native";
 import MainAppFooter from "../components/MainAppFooter";
 import Subject from "../components/Subject";
 
-function Baihoc(props) {
-  return (
-    <View style={styles.container}>
-      <View style={styles.mainAppFooterStack}>
-        <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
-        <View style={styles.scrollArea}>
-          <ScrollView
-            horizontal={false}
-            contentContainerStyle={styles.scrollArea_contentContainerStyle}
-          >
-            <Text style={styles.danhSachMonHọc}>Danh sách môn học</Text>
-            <Subject style={styles.subject}></Subject>
-          </ScrollView>
+const { width, height } = Dimensions.get('window'); 
+
+class Baihoc extends Component {
+  render () {
+    return (
+      <View style={styles.container}>
+        <View style={styles.mainAppFooterStack}>
+          <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
+          <View style={styles.scrollArea}>
+            <ScrollView
+              horizontal={false}
+              contentContainerStyle={styles.scrollArea_contentContainerStyle}
+            >
+              <Text style={styles.danhSachMonHọc}>Danh sách môn học</Text>
+              <Subject style={styles.subject}></Subject>
+            </ScrollView>
+          </View>
         </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -28,13 +32,13 @@ const styles = StyleSheet.create({
   },
   mainAppFooter: {
     position: "absolute",
-    top: 691,
-    width: 375,
+    top: 0.95*height,
+    width: width,
     height: 49,
-    left: 0
+    left: width/4,
   },
   scrollArea: {
-    top: 0,
+    top: 0.05*height,
     left: 7,
     width: 360,
     height: 740,
@@ -58,8 +62,8 @@ const styles = StyleSheet.create({
     marginLeft: 18
   },
   mainAppFooterStack: {
-    width: 375,
-    height: 740,
+    width: width,
+    height: height,
     marginLeft: -7
   }
 });
