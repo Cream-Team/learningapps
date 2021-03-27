@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Dimensions,
   StyleSheet,
   View,
   StatusBar,
@@ -12,56 +13,60 @@ import {
 import Logo1 from "../components/Logo1";
 import MaterialButtonShare from "../components/MaterialButtonShare";
 
-function SidemenuNotloggedin(props) {
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <ImageBackground
-        source={require("../assets/images/Splashbackground.png")}
-        resizeMode="cover"
-        style={styles.image}
-        imageStyle={styles.image_imageStyle}
-      >
-        <Logo1 style={styles.logo1}></Logo1>
-        <View style={styles.rect2}>
-          <TextInput
-            placeholder="Tên đăng nhập"
-            textBreakStrategy="highQuality"
-            placeholderTextColor="rgba(230, 230, 230,1)"
-            enablesReturnKeyAutomatically={true}
-            defaultValue=""
-            keyboardType="email-address"
-            style={styles.textInput}
-          ></TextInput>
-        </View>
-        <View style={styles.rect3}>
-          <TextInput
-            placeholder="Mật khẩu"
-            placeholderTextColor="rgba(255,255,255,1)"
-            secureTextEntry={true}
-            enablesReturnKeyAutomatically={true}
-            blurOnSubmit={true}
-            style={styles.textInput2}
-          ></TextInput>
-        </View>
-        <MaterialButtonShare
-          iconName="share-variant"
-          icon="login"
-          style={styles.loginButton}
-        ></MaterialButtonShare>
-        <View style={styles.group}>
-          <View style={styles.dangkybtnRow}>
-            <TouchableOpacity style={styles.dangkybtn}>
-              <Text style={styles.dangKy}>Đăng ký</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.forgotpwd}>
-              <Text style={styles.quenMậtKhẩu}>Quên mật khẩu?</Text>
-            </TouchableOpacity>
+const { width, height } = Dimensions.get('window'); 
+
+class SidemenuNotloggedin extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <ImageBackground
+          source={require("../assets/images/Splashbackground.png")}
+          resizeMode="cover"
+          style={styles.image}
+          imageStyle={styles.image_imageStyle}
+        >
+          <Logo1 style={styles.logo1}></Logo1>
+          <View style={styles.rect2}>
+            <TextInput
+              placeholder="Tên đăng nhập"
+              textBreakStrategy="highQuality"
+              placeholderTextColor="rgba(230, 230, 230,1)"
+              enablesReturnKeyAutomatically={true}
+              defaultValue=""
+              keyboardType="email-address"
+              style={styles.textInput}
+            ></TextInput>
           </View>
-        </View>
-      </ImageBackground>
-    </View>
-  );
+          <View style={styles.rect3}>
+            <TextInput
+              placeholder="Mật khẩu"
+              placeholderTextColor="rgba(255,255,255,1)"
+              secureTextEntry={true}
+              enablesReturnKeyAutomatically={true}
+              blurOnSubmit={true}
+              style={styles.textInput2}
+            ></TextInput>
+          </View>
+          <MaterialButtonShare
+            iconName="share-variant"
+            icon="login"
+            style={styles.loginButton}
+          ></MaterialButtonShare>
+          <View style={styles.group}>
+            <View style={styles.dangkybtnRow}>
+              <TouchableOpacity style={styles.dangkybtn}>
+                <Text style={styles.dangKy}>Đăng ký</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.forgotpwd}>
+                <Text style={styles.quenMatKhau}>Quên mật khẩu?</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ImageBackground>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -72,17 +77,17 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   image: {
-    width: 360,
-    height: 706,
+    width: width,
+    height: height,
     marginTop: 34
   },
   image_imageStyle: {},
   logo1: {
-    height: 200,
-    width: 200,
+    height: height/4,
+    width: width/2,
     opacity: 0.76,
-    marginTop: 55,
-    marginLeft: 80
+    marginTop: 70,
+    marginLeft: width/4
   },
   rect2: {
     width: 264,
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 101,
-    marginLeft: 48
+    marginLeft: width/6
   },
   textInput: {
     fontFamily: "roboto-regular",
@@ -112,7 +117,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 33,
-    marginLeft: 48
+    marginLeft: width/6
   },
   textInput2: {
     fontFamily: "roboto-regular",
@@ -124,7 +129,7 @@ const styles = StyleSheet.create({
     height: 56,
     width: 56,
     marginTop: 53,
-    marginLeft: 152
+    marginLeft: width/2.5
   },
   group: {
     width: 50,
@@ -151,7 +156,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  quenMậtKhẩu: {
+  quenMatKhau: {
     fontFamily: "roboto-regular",
     color: "rgba(255,255,255,1)"
   },
@@ -160,7 +165,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     marginRight: -208,
-    marginLeft: -102,
+    marginLeft: -width/5,
     marginTop: 9
   }
 });

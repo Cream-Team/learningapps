@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import MainAppFooter from "../components/MainAppFooter";
 
-function Ontap(props) {
-  return (
-    <View style={styles.container}>
-      <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
-    </View>
-  );
+class Ontap extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

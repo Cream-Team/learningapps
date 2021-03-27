@@ -36,14 +36,14 @@ function MainAppFooter(props) {
           name="book-open-variant"
           style={styles.icon3}
         ></MaterialCommunityIconsIcon>
-        <Text style={styles.onTập}>Ôn tập</Text>
+        <Text style={styles.onTap}>Ôn tập</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.btnWrapper3}>
         <MaterialCommunityIconsIcon
           name="poll"
           style={styles.icon2}
         ></MaterialCommunityIconsIcon>
-        <Text style={styles.thốngKe}>Thống kê</Text>
+        <Text style={styles.thongKe}>Thống kê</Text>
       </TouchableOpacity>
     </View>
   );
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     top: 3,
     height: 26
   },
-  onTập: {
+  onTap: {
     fontSize: 12,
     color: "rgba(255,255,255,1)",
     backgroundColor: "transparent",
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     opacity: 0.8
   },
-  thốngKe: {
+  thongKe: {
     fontSize: 12,
     color: "rgba(255,255,255,1)",
     backgroundColor: "transparent",
