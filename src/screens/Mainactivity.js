@@ -10,6 +10,10 @@ import {
 import Svg, { Ellipse } from "react-native-svg";
 import MainAppFooter from "../components/MainAppFooter";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { Dimensions } from 'react-native';
+
+const wW= Dimensions.get('window').width;
+const wH = Dimensions.get('window').height;
 
 function Mainactivity(props) {
   return (
@@ -17,7 +21,7 @@ function Mainactivity(props) {
       <View style={styles.imageStack}>
         <ImageBackground
           source={require("../assets/images/Home-background-01.png")}
-          resizeMode="cover"
+          resizeMode="stretch"
           style={styles.image}
           imageStyle={styles.image_imageStyle}
         >
@@ -72,8 +76,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   image: {
-    width: 360,
-    height: 740,
+    width: wW,
+    height: wH,
     position: "absolute",
     left: 102,
     top: 28
@@ -117,7 +121,7 @@ const styles = StyleSheet.create({
   },
   cupertinoFooter1: {
     height: 55,
-    width: 376,
+    width: wW,
     position: "absolute",
     left: 94,
     top: 713,
@@ -130,7 +134,7 @@ const styles = StyleSheet.create({
       height: 3
     },
     elevation: 5,
-    shadowOpacity: 1,
+    shadowOpacity: 0,
     shadowRadius: 0
   },
   button: {
