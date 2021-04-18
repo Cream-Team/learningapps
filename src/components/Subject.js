@@ -6,7 +6,7 @@ function Subject(props) {
     <TouchableOpacity style={[styles.container, props.style]}>
       <View style={styles.rectStack}>
         <View style={styles.rect}>
-          <Text style={styles.tenMonHọc}>Tên môn học</Text>
+          <Text style={styles.tenMonHoc}>Tên môn học</Text>
         </View>
         <Image
           source={require("../assets/images/artworks-000342067074-v8r2ax-t500x500-min-min2.png")}
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6",
     opacity: 0
   },
-  tenMonHọc: {
+  tenMonHoc: {
     fontFamily: "roboto-regular",
     color: "#121212",
     marginTop: 113,

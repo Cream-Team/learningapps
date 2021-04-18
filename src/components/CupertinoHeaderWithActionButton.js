@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     color: "#007AFF",
     fontSize: 17,
     alignSelf: "center",
-    top: -11
+    top: -2
   }
 });
 

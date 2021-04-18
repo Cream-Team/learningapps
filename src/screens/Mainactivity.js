@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Dimensions,
   StyleSheet,
   View,
   Image,
@@ -10,65 +11,65 @@ import {
 import Svg, { Ellipse } from "react-native-svg";
 import MainAppFooter from "../components/MainAppFooter";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { Dimensions } from 'react-native';
 
-const wW= Dimensions.get('window').width;
-const wH = Dimensions.get('window').height;
+const { width, height } = Dimensions.get('window'); 
 
-function Mainactivity(props) {
-  return (
-    <View style={styles.container}>
-      <View style={styles.imageStack}>
-        <ImageBackground
-          source={require("../assets/images/Home-background-01.png")}
-          resizeMode="stretch"
-          style={styles.image}
-          imageStyle={styles.image_imageStyle}
-        >
-          <Text style={styles.chaoMừng}>Chào mừng!</Text>
-          <Text style={styles.userDaQuayTrởLại}>User đã quay trở lại</Text>
-          <Text style={styles.loremIpsum}>Đây là dòng thông báo gì đó</Text>
-          <View style={styles.lastLesson}>
-            <Svg viewBox="0 0 90 90" style={styles.base}>
-              <Ellipse
-                stroke="rgba(230, 230, 230,1)"
-                strokeWidth={0}
-                fill="rgba(230, 230, 230,1)"
-                cx={45}
-                cy={45}
-                rx={45}
-                ry={45}
-              ></Ellipse>
-            </Svg>
-            <Text style={styles.noteForDev}>
-              https://www.npmjs.com/package/react-circular-progressbar
-            </Text>
-          </View>
-        </ImageBackground>
-        <MainAppFooter style={styles.cupertinoFooter1}></MainAppFooter>
-        <TouchableOpacity style={styles.button}>
+class Mainactivity extends Component {
+  render (){
+    return (
+      <View style={styles.container}>
+        <View style={styles.imageStack}>
           <ImageBackground
-            source={require("../assets/images/button-012.png")}
-            resizeMode="contain"
-            style={styles.image2}
-            imageStyle={styles.image2_imageStyle}
+            source={require("../assets/images/Home-background-01.png")}
+            resizeMode="cover"
+            style={styles.image}
+            imageStyle={styles.image_imageStyle}
           >
-            <FeatherIcon name="menu" style={styles.icon}></FeatherIcon>
+            <Text style={styles.chaoMung}>Chào mừng!</Text>
+            <Text style={styles.userDaQuayTroLai}>User đã quay trở lại</Text>
+            <Text style={styles.loremIpsum}>Đây là dòng thông báo gì đó</Text>
+            <View style={styles.lastLesson}>
+              <Svg viewBox="0 0 90 90" style={styles.base}>
+                <Ellipse
+                  stroke="rgba(230, 230, 230,1)"
+                  strokeWidth={0}
+                  fill="rgba(230, 230, 230,1)"
+                  cx={45}
+                  cy={45}
+                  rx={45}
+                  ry={45}
+                ></Ellipse>
+              </Svg>
+              <Text style={styles.noteForDev}>
+                https://www.npmjs.com/package/react-circular-progressbar
+              </Text>
+            </View>
           </ImageBackground>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button2}>
-          <ImageBackground
-            source={require("../assets/images/button-013.png")}
-            resizeMode="contain"
-            style={styles.image3}
-            imageStyle={styles.image3_imageStyle}
-          >
-            <FeatherIcon name="settings" style={styles.icon2}></FeatherIcon>
-          </ImageBackground>
-        </TouchableOpacity>
+          <MainAppFooter style={styles.cupertinoFooter1}></MainAppFooter>
+          <TouchableOpacity style={styles.button}>
+            <ImageBackground
+              source={require("../assets/images/button-012.png")}
+              resizeMode="contain"
+              style={styles.image2}
+              imageStyle={styles.image2_imageStyle}
+            >
+              <FeatherIcon name="menu" style={styles.icon}></FeatherIcon>
+            </ImageBackground>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button2}>
+            <ImageBackground
+              source={require("../assets/images/button-013.png")}
+              resizeMode="contain"
+              style={styles.image3}
+              imageStyle={styles.image3_imageStyle}
+            >
+              <FeatherIcon name="settings" style={styles.icon2}></FeatherIcon>
+            </ImageBackground>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -76,25 +77,25 @@ const styles = StyleSheet.create({
     flex: 1
   },
   image: {
-    width: wW,
-    height: wH,
+    width: width,
+    height: height,
     position: "absolute",
     left: 102,
     top: 28
   },
   image_imageStyle: {},
-  chaoMừng: {
+  chaoMung: {
     fontFamily: "amita-regular",
     color: "rgba(255,255,255,1)",
     fontSize: 35,
     marginTop: 138,
-    marginLeft: 6
+    marginLeft: 24
   },
-  userDaQuayTrởLại: {
+  userDaQuayTroLai: {
     fontFamily: "courier-regular",
     color: "rgba(255,255,255,1)",
     fontSize: 25,
-    marginLeft: 30
+    marginLeft: 50
   },
   loremIpsum: {
     fontFamily: "roboto-regular",
@@ -121,21 +122,10 @@ const styles = StyleSheet.create({
   },
   cupertinoFooter1: {
     height: 55,
-    width: wW,
+    width: width,
     position: "absolute",
-    left: 94,
-    top: 713,
-    borderWidth: 1,
-    borderColor: "#000000",
-    borderTopWidth: 1,
-    shadowColor: "rgba(0,0,0,1)",
-    shadowOffset: {
-      width: 3,
-      height: 3
-    },
-    elevation: 5,
-    shadowOpacity: 0,
-    shadowRadius: 0
+    left: width/4,
+    top: 0.95*height,
   },
   button: {
     top: 0,
@@ -161,7 +151,7 @@ const styles = StyleSheet.create({
   },
   button2: {
     top: 15,
-    left: 377,
+    left: 1.05*width,
     width: 170,
     height: 170,
     position: "absolute"
@@ -180,8 +170,8 @@ const styles = StyleSheet.create({
     marginLeft: 28
   },
   imageStack: {
-    width: 547,
-    height: 768,
+    width: width,
+    height: height,
     marginTop: -28,
     marginLeft: -102
   }

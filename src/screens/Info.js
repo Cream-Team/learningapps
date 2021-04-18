@@ -1,24 +1,28 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { Dimensions ,StyleSheet, View, Text } from "react-native";
 import CupertinoHeaderWithActionButton from "../components/CupertinoHeaderWithActionButton";
 import Navlesson from "../components/Navlesson";
 import MaterialCardWithoutImage from "../components/MaterialCardWithoutImage";
 
-function Info(props) {
-  return (
-    <View style={styles.container}>
-      <CupertinoHeaderWithActionButton
-        style={styles.subjectTitle}
-      ></CupertinoHeaderWithActionButton>
-      <Navlesson style={styles.navlesson}></Navlesson>
-      <View style={styles.loremIpsumStack}>
-        <Text style={styles.loremIpsum}></Text>
-        <MaterialCardWithoutImage
-          style={styles.materialCardWithoutImage}
-        ></MaterialCardWithoutImage>
+const { width, height } = Dimensions.get('window'); 
+
+class Info extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <CupertinoHeaderWithActionButton
+          style={styles.subjectTitle}
+        ></CupertinoHeaderWithActionButton>
+        <Navlesson style={styles.navlesson}></Navlesson>
+        <View style={styles.loremIpsumStack}>
+          <Text style={styles.loremIpsum}></Text>
+          <MaterialCardWithoutImage
+            style={styles.materialCardWithoutImage}
+          ></MaterialCardWithoutImage>
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -27,13 +31,13 @@ const styles = StyleSheet.create({
   },
   subjectTitle: {
     height: 44,
-    width: 360,
-    marginTop: 25,
+    width: width,
+    marginTop: 0.04*height,
     alignSelf: "center"
   },
   navlesson: {
     height: 24,
-    width: 360
+    width: width
   },
   loremIpsum: {
     top: 51,
@@ -43,8 +47,8 @@ const styles = StyleSheet.create({
     color: "#121212"
   },
   materialCardWithoutImage: {
-    height: 647,
-    width: 359,
+    height: height,
+    width: width,
     position: "absolute",
     left: 0,
     top: 0

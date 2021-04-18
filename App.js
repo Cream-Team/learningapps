@@ -72,22 +72,5 @@ function App() {
     return isLoadingComplete ? <AppContainer /> : <AppLoading />;
   }
 }
-async function loadResourcesAsync() {
-  await Promise.all([
-    Font.loadAsync({
-      "roboto-regular": require("./src/assets/fonts/roboto-regular.ttf"),
-      "amita-regular": require("./src/assets/fonts/amita-regular.ttf"),
-      "roboto-700": require("./src/assets/fonts/roboto-700.ttf"),
-      "courier-regular": require("./src/assets/fonts/courier-regular.ttf")
-    })
-  ]);
-}
-function handleLoadingError(error) {
-  console.warn(error);
-}
-
-function handleFinishLoading(setLoadingComplete) {
-  setLoadingComplete(true);
-}
 
 export default App;
