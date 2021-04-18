@@ -13,55 +13,6 @@ const transition = (
   </Transition.Together>
 );
 
-const defBg = "#000";
-const defColor = "#fff";
-const data = [
-  {
-    bg: defBg,
-    color: defColor,
-    category: "Basic C++",
-    subCategories: ["Basic infomations"],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: "Condition & loop",
-    subCategories: ["Basic infomations"],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: "Data types, Arrays, Pointers",
-    subCategories: ["Basic infomations"],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: "Functions",
-    subCategories: ["Basic infomations"],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: "Classes & Objects",
-    subCategories: ["Basic infomations"],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: "Advanced",
-    subCategories: ["Basic infomations"],
-  },
-];
-
-const transition = (
-  <Transition.Together>
-    <Transition.In type="fade" durationMs={200} />
-    <Transition.Change />
-    <Transition.Out type="fade" durationMs={200} />
-  </Transition.Together>
-);
-
 export default class App extends Component {
   render() {
     const [currentIndex, setCurrentIndex] = useState<any | null>(null);
