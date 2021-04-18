@@ -1,47 +1,8 @@
+import {StatusBar} from 'expo-status-bar';
 import React, {useState, useRef, Component} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Transition, Transitioning} from 'react-native-reanimated';
-
-const defBg = '#000';
-const defColor = '#fff';
-const data = [
-  {
-    bg: defBg,
-    color: defColor,
-    category: 'Basic C++',
-    subCategories: ['Basic infomations'],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: 'Condition & loop',
-    subCategories: ['Basic infomations'],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: 'Data types, Arrays, Pointers',
-    subCategories: ['Basic infomations'],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: 'Functions',
-    subCategories: ['Basic infomations'],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: 'Classes & Objects',
-    subCategories: ['Basic infomations'],
-  },
-  {
-    bg: defBg,
-    color: defColor,
-    category: 'Advanced',
-    subCategories: ['Basic infomations'],
-  },
-];
+import data from '../components/data';
 
 const transition = (
   <Transition.Together>
@@ -53,40 +14,13 @@ const transition = (
 
 export default class App extends Component {
   render() {
-    const [currentIndex, setCurrentIndex] = React.useState < any |null > (null);
+    const [currentIndex, setCurrentIndex] = useState(null);
     const ref = useRef();
-
     return (
       <Transitioning.View
         ref={ref}
         transition={transition}
-        style={styles.container}>
-        {data.map(({bg, color, category, subCategories}, index) => {
-          return (
-            <TouchableOpacity
-              key="category"
-              onPress={() => {
-                ref.current.animateNextTransition();
-                setCurrentIndex(index === currentIndex ? null : index);
-              }}
-              style={styles.cardContainer}
-              activeOpacity={0.9}>
-              <View style={[styles.card, {backgroundColor: bg}]}>
-                <Text style={[styles.heading, {color}]}>{category}</Text>
-                {index === currentIndex && (
-                  <View style={styles.subCategoriesList}>
-                    {subCategories.map((subCategory, index) => (
-                      <Text key={index} style={[styles.body, {color}]}>
-                        {subCategory}
-                      </Text>
-                    ))}
-                  </View>
-                )}
-              </View>
-            </TouchableOpacity>
-          );
-        })}
-      </Transitioning.View>
+        style={styles.container}></Transitioning.View>
     );
   }
 }
@@ -94,7 +28,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
