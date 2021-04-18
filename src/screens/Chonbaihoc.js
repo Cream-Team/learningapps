@@ -1,4 +1,3 @@
-import {StatusBar} from 'expo-status-bar';
 import React, {useState, useRef, Component} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Transition, Transitioning} from 'react-native-reanimated';
@@ -54,7 +53,7 @@ const transition = (
 
 export default class App extends Component {
   render() {
-    const [currentIndex, setCurrentIndex] = (useState < any) | (null > null);
+    const [currentIndex, setCurrentIndex] = React.useState < any |null > (null);
     const ref = useRef();
 
     return (
@@ -62,7 +61,6 @@ export default class App extends Component {
         ref={ref}
         transition={transition}
         style={styles.container}>
-        <StatusBar hidden />
         {data.map(({bg, color, category, subCategories}, index) => {
           return (
             <TouchableOpacity
