@@ -1,7 +1,17 @@
+
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useRef , Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Transition, Transitioning } from "react-native-reanimated";
+import data from '../components/data';
+
+const transition = (
+  <Transition.Together>
+    <Transition.In type="fade" durationMs={200} />
+    <Transition.Change />
+    <Transition.Out type="fade" durationMs={200} />
+  </Transition.Together>
+);
 
 const defBg = "#000";
 const defColor = "#fff";
@@ -56,6 +66,7 @@ export default class App extends Component {
   render() {
     const [currentIndex, setCurrentIndex] = useState<any | null>(null);
     const ref = useRef();
+
     return (
       <Transitioning.View
         ref={ref}
@@ -64,16 +75,15 @@ export default class App extends Component {
       >
         <StatusBar hidden />
         {data.map(({ bg, color, category, subCategories }, index) => {
+        style={styles.container}>
+        <StatusBar hidden />
+        {data.map(({bg, color, category, subCategories}, index) => {
           return (
-            <TouchableOpacity
-              key="category"
-              onPress={() => {
-                ref.current.animateNextTransition();
-                setCurrentIndex(index === currentIndex ? null : index);
-              }}
-              style={styles.cardContainer}
-              activeOpacity={0.9}
-            >
+            <TouchableOpacity key="category" onPress={() => {
+            ref.current.animateNextTransition();
+            setCurrentIndex(index === currentIndex ? null : index);
+            }} style={styles.cardContainer} 
+            activeOpacity={0.9}>
               <View style={[styles.card, { backgroundColor: bg }]}>
                 <Text style={[styles.heading, { color }]}>{category}</Text>
                 {index === currentIndex && (
@@ -97,6 +107,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: "#fff",
     justifyContent: "center",
   },
@@ -105,21 +116,21 @@ const styles = StyleSheet.create({
   },
   card: {
     flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottomColor: "#242424",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomColor: '#242424',
     borderWidth: 0.25,
   },
   heading: {
     fontSize: 30,
-    fontWeight: "900",
-    textTransform: "uppercase",
+    fontWeight: '900',
+    textTransform: 'uppercase',
     letterSpacing: -2,
   },
   body: {
     fontSize: 20,
     lineHeight: 20 * 1.5,
-    textAlign: "center",
+    textAlign: 'center',
   },
   subCategoriesList: {},
 });
