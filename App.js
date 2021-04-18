@@ -37,19 +37,7 @@ const StackNavigation = createStackNavigator(
   {
     DrawerNavigation: {
       screen: DrawerNavigation,
-    },
-    Mainactivity: Mainactivity,
-    SidemenuNotloggedin: SidemenuNotloggedin,
-    SidemenuLoggedin: SidemenuLoggedin,
-    Ontap: Ontap,
-    Baihoc: Baihoc,
-    Thongke: Thongke,
-    Setting: Setting,
-    Chonbaihoc: Chonbaihoc,
-    QnA: QnA,
-    Info: Info,
-    Videos: Videos,
-    ExtendLink: ExtendLink,
+    }
   },
   {
     headerMode: 'none',
