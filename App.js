@@ -19,6 +19,7 @@ import Videos from "./src/screens/Videos";
 import ExtendLink from "./src/screens/ExtendLink";
 
 const DrawerNavigation = createDrawerNavigator({
+  Chonbaihoc: Chonbaihoc,
   Mainactivity: Mainactivity,
   SidemenuNotloggedin: SidemenuNotloggedin,
   SidemenuLoggedin: SidemenuLoggedin,
@@ -26,7 +27,7 @@ const DrawerNavigation = createDrawerNavigator({
   Baihoc: Baihoc,
   Thongke: Thongke,
   Setting: Setting,
-  Chonbaihoc: Chonbaihoc,
+  
   QnA: QnA,
   Info: Info,
   Videos: Videos,
@@ -37,35 +38,27 @@ const StackNavigation = createStackNavigator(
   {
     DrawerNavigation: {
       screen: DrawerNavigation
-    },
-    Mainactivity: Mainactivity,
-    SidemenuNotloggedin: SidemenuNotloggedin,
-    SidemenuLoggedin: SidemenuLoggedin,
-    Ontap: Ontap,
-    Baihoc: Baihoc,
-    Thongke: Thongke,
-    Setting: Setting,
-    Chonbaihoc: Chonbaihoc,
-    QnA: QnA,
-    Info: Info,
-    Videos: Videos,
-    ExtendLink: ExtendLink
+    }
   },
   {
     headerMode: "none"
   }
 );
 
+const loadResourcesAsync = async () => {
+  return await StackNavigation;
+}
+
 const AppContainer = createAppContainer(StackNavigation);
 
-function App() {
+function App() { 
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   if (!isLoadingComplete) {
     return (
       <AppLoading
         startAsync={loadResourcesAsync}
-        onError={handleLoadingError}
-        onFinish={() => handleFinishLoading(setLoadingComplete)}
+        onError={console.warn("error")}
+        onFinish={() => setLoadingComplete(true)}
       />
     );
   } else {

@@ -5,14 +5,12 @@ function Subject(props) {
   return (
     <TouchableOpacity style={[styles.container, props.style]}>
       <View style={styles.rectStack}>
-        <View style={styles.rect}>
-          <Text style={styles.tenMonHoc}>Tên môn học</Text>
-        </View>
         <Image
           source={require("../assets/images/artworks-000342067074-v8r2ax-t500x500-min-min2.png")}
           resizeMode="contain"
           style={styles.image}
         ></Image>
+          <Text style={styles.tenMonHoc}>Tên môn học</Text>
       </View>
     </TouchableOpacity>
   );
@@ -30,7 +28,7 @@ const styles = StyleSheet.create({
     opacity: 0
   },
   tenMonHoc: {
-    fontFamily: "roboto-regular",
+    fontFamily: "Avenir",
     color: "#121212",
     marginTop: 113,
     marginLeft: 19

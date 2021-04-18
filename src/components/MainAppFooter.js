@@ -96,9 +96,7 @@ const styles = StyleSheet.create({
     color: "rgba(236,236,236,1)",
     fontSize: 24,
     opacity: 0.8,
-    left: 34,
     width: 24,
-    top: 3,
     height: 26
   },
   onTap: {

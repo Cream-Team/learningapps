@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     top: 51,
     left: 124,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    fontFamily: "Avenir",
     color: "#121212"
   },
   materialCardWithoutImage: {
