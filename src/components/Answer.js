@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     width: 40
   },
   dapAn1: {
-    fontFamily: "roboto-regular",
+    fontFamily: "Avenir",
     color: "#121212",
     fontSize: 20,
     marginLeft: 11,

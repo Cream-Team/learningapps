@@ -40,9 +40,6 @@ class Mainactivity extends Component {
                   ry={45}
                 ></Ellipse>
               </Svg>
-              <Text style={styles.noteForDev}>
-                https://www.npmjs.com/package/react-circular-progressbar
-              </Text>
             </View>
           </ImageBackground>
           <MainAppFooter style={styles.cupertinoFooter1}></MainAppFooter>
@@ -85,20 +82,20 @@ const styles = StyleSheet.create({
   },
   image_imageStyle: {},
   chaoMung: {
-    fontFamily: "amita-regular",
+    fontFamily: "Avenir",
     color: "rgba(255,255,255,1)",
     fontSize: 35,
     marginTop: 138,
     marginLeft: 24
   },
   userDaQuayTroLai: {
-    fontFamily: "courier-regular",
+    fontFamily: "Avenir",
     color: "rgba(255,255,255,1)",
     fontSize: 25,
     marginLeft: 50
   },
   loremIpsum: {
-    fontFamily: "roboto-regular",
+    fontFamily: "Avenir",
     color: "#121212",
     fontSize: 20,
     marginTop: 135,
@@ -115,7 +112,7 @@ const styles = StyleSheet.create({
     height: 90
   },
   noteForDev: {
-    fontFamily: "roboto-regular",
+    fontFamily: "Avenir",
     color: "#121212",
     opacity: 0,
     marginLeft: -142
