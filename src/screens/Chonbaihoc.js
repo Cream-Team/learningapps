@@ -1,7 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useRef , Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Dimensions } from "react-native";
 import { Transition, Transitioning } from "react-native-reanimated";
+import MainAppFooter from "../components/MainAppFooter";
+import SettingHeader from "../components/SettingHeader";
+
+const { width, height } = Dimensions.get('window'); 
 
 const defBg = "#000";
 const defColor = "#fff";
@@ -52,45 +56,55 @@ const transition = (
   </Transition.Together>
 );
 
-export default class App extends Component {
+const DSbaihoc = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const ref = useRef();
+  return (
+    <Transitioning.View
+      ref={ref}
+      transition={transition}
+      style={styles.container}
+    >
+      <SettingHeader
+          style={styles.cupertinoHeaderWithBackground}
+        ></SettingHeader>
+      <StatusBar hidden />
+      {data.map(({ bg, color, category, subCategories }, index) => {
+        return (
+          <TouchableOpacity
+            key={index}
+            onPress={() => {
+              ref.current.animateNextTransition();
+              setCurrentIndex(index === currentIndex ? null : index);
+            }}
+            style={styles.cardContainer}
+            activeOpacity={0.9}
+          >
+            <View style={[styles.card, { backgroundColor: bg }]}>
+              <Text style={[styles.heading, { color }]}>{category}</Text>
+              {index === currentIndex && (
+                <View style={styles.subCategoriesList}>
+                  {
+                  subCategories.map((subCategory, index) => (
+                    <Text key={index} style={[styles.body, { color }]}>
+                      {subCategory}
+                    </Text>
+                  ))
+                  }
+                </View>
+              )}
+            </View>
+          </TouchableOpacity>
+        );
+      })}
+      <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
+    </Transitioning.View>
+  );
+}
+
+export default class Chonbaihoc extends Component {
   render() {
-    const [currentIndex, setCurrentIndex] = useState<any | null>(null);
-    const ref = useRef();
-    return (
-      <Transitioning.View
-        ref={ref}
-        transition={transition}
-        style={styles.container}
-      >
-        <StatusBar hidden />
-        {data.map(({ bg, color, category, subCategories }, index) => {
-          return (
-            <TouchableOpacity
-              key="category"
-              onPress={() => {
-                ref.current.animateNextTransition();
-                setCurrentIndex(index === currentIndex ? null : index);
-              }}
-              style={styles.cardContainer}
-              activeOpacity={0.9}
-            >
-              <View style={[styles.card, { backgroundColor: bg }]}>
-                <Text style={[styles.heading, { color }]}>{category}</Text>
-                {index === currentIndex && (
-                  <View style={styles.subCategoriesList}>
-                    {subCategories.map((subCategory, index) => (
-                      <Text key={index} style={[styles.body, { color }]}>
-                        {subCategory}
-                      </Text>
-                    ))}
-                  </View>
-                )}
-              </View>
-            </TouchableOpacity>
-          );
-        })}
-      </Transitioning.View>
-    );
+    return <DSbaihoc></DSbaihoc>
   }
 }
 
@@ -122,4 +136,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   subCategoriesList: {},
+  cupertinoHeaderWithBackground: {
+    height: 0.05*height,
+    width: width,
+    marginTop: 0.05*height
+  }
 });
