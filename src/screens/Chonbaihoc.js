@@ -97,7 +97,7 @@ const DSbaihoc = () => {
           </TouchableOpacity>
         );
       })}
-      <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
+      <MainAppFooter style={styles.cupertinoFooter1}></MainAppFooter>
     </Transitioning.View>
   );
 }
@@ -140,5 +140,12 @@ const styles = StyleSheet.create({
     height: 0.05*height,
     width: width,
     marginTop: 0.05*height
-  }
+  },
+  cupertinoFooter1: {
+    height: 55,
+    width: width,
+    position: "absolute",
+    backgroundColor: "#121212",
+    top: 0.94*height,
+  },
 });

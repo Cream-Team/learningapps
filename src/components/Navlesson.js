@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
 import Lessonicon from "./Lessonicon";
+
+const { width, height } = Dimensions.get('window'); 
 
 function Navlesson(props) {
   return (
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
     width: 24,
     borderWidth: 1,
     borderColor: "rgba(147,147,147,1)",
-    marginLeft: 168
+    marginLeft: 0.45*width
   }
 });
 

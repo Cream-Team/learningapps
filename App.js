@@ -19,6 +19,7 @@ import Videos from './src/screens/Videos';
 import ExtendLink from './src/screens/ExtendLink';
 
 const DrawerNavigation = createDrawerNavigator({
+  Chonbaihoc: Chonbaihoc,
   Mainactivity: Mainactivity,
   SidemenuNotloggedin: SidemenuNotloggedin,
   SidemenuLoggedin: SidemenuLoggedin,
@@ -26,7 +27,7 @@ const DrawerNavigation = createDrawerNavigator({
   Baihoc: Baihoc,
   Thongke: Thongke,
   Setting: Setting,
-  Chonbaihoc: Chonbaihoc,
+  
   QnA: QnA,
   Info: Info,
   Videos: Videos,
