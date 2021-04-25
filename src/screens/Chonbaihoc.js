@@ -1,9 +1,11 @@
+
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useRef , Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Dimensions } from "react-native";
 import { Transition, Transitioning } from "react-native-reanimated";
 import MainAppFooter from "../components/MainAppFooter";
 import SettingHeader from "../components/SettingHeader";
+
 
 const { width, height } = Dimensions.get('window'); 
 
