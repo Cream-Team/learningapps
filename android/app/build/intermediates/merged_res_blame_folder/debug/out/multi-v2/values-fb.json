@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\code\\NghienCuuKhoaHoc\\Apps\\learningapps\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fb\\values-fb.xml",
+            "outputFile": "D:\\Work_Learn\\ReactNative\\learning app\\learningapps-main\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fb\\values-fb.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\9004165a59d996122ae49a40b1408f92\\jetified-react-native-0.20.1\\res\\values-fb\\values-fb.xml",
+                    "source": "C:\\Users\\ohlov\\.gradle\\caches\\transforms-2\\files-2.1\\467b79b235dd31a6c831a78fea95c20b\\jetified-react-native-0.20.1\\res\\values-fb\\values-fb.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
