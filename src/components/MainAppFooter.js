@@ -3,7 +3,9 @@ import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 
+
 function MainAppFooter(props) {
+
   return (
     <View style={[styles.container, props.style]}>
       <TouchableOpacity style={styles.btnWrapper1}>
@@ -15,29 +17,36 @@ function MainAppFooter(props) {
               color: props.active ? "#007AFF" : "rgba(241,233,233,1)"
             }
           ]}
-        ></MaterialCommunityIconsIcon>
+          >
+        </MaterialCommunityIconsIcon>
         <Text
           style={[
             styles.homepage,
             {
               color: props.active ? "#007AFF" : "rgba(251,251,251,1)"
             }
-          ]}
-        >
+          ]}>
           Homepage
         </Text>
+        onPress={() => navigation.navigate('Mainactivity')}
       </TouchableOpacity>
-      <TouchableOpacity style={styles.btnWrapper2}>
+
+      <TouchableOpacity
+        style={styles.btnWrapper2}>
         <IoniconsIcon name="ios-book" style={styles.icon1}></IoniconsIcon>
         <Text style={styles.baiHọc}>Bài học</Text>
+        onPress={() => navigation.navigate('Baihoc')}
       </TouchableOpacity>
+
       <TouchableOpacity style={styles.btnWrapper4}>
         <MaterialCommunityIconsIcon
           name="book-open-variant"
           style={styles.icon3}
         ></MaterialCommunityIconsIcon>
         <Text style={styles.onTap}>Ôn tập</Text>
+        onPress={() => navigation.navigate('Ontap')}
       </TouchableOpacity>
+
       <TouchableOpacity style={styles.btnWrapper3}>
         <MaterialCommunityIconsIcon
           name="poll"

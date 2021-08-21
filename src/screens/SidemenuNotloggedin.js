@@ -29,9 +29,8 @@ class SidemenuNotloggedin extends Component {
           <Logo1 style={styles.logo1}></Logo1>
           <View style={styles.rect2}>
             <TextInput
-              placeholder="Tên đăng nhập"
+              Text="user"
               textBreakStrategy="highQuality"
-              placeholderTextColor="rgba(230, 230, 230,1)"
               enablesReturnKeyAutomatically={true}
               defaultValue=""
               keyboardType="email-address"
@@ -40,8 +39,8 @@ class SidemenuNotloggedin extends Component {
           </View>
           <View style={styles.rect3}>
             <TextInput
-              placeholder="Mật khẩu"
-              placeholderTextColor="rgba(255,255,255,1)"
+              Text="1234"
+              textContentType="password"
               secureTextEntry={true}
               enablesReturnKeyAutomatically={true}
               blurOnSubmit={true}

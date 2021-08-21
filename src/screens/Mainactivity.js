@@ -8,14 +8,19 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
+
 import Svg, { Ellipse } from "react-native-svg";
 import MainAppFooter from "../components/MainAppFooter";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import IoniconsIcon from "react-native-vector-icons/Ionicons";
+
 
 const { width, height } = Dimensions.get('window'); 
 
 class Mainactivity extends Component {
   render (){
+    
     return (
       <View style={styles.container}>
         <View style={styles.imageStack}>
@@ -42,8 +47,55 @@ class Mainactivity extends Component {
               </Svg>
             </View>
           </ImageBackground>
-          <MainAppFooter style={styles.cupertinoFooter1}></MainAppFooter>
-          <TouchableOpacity style={styles.button}>
+
+          {/* Footer */}
+          <View style={[stylesFooter.container, styles.cupertinoFooter1]}>
+            <TouchableOpacity
+              style={stylesFooter.btnWrapper1}
+              onPress={() => this.props.navigation.navigate('Mainactivity')}>
+              <MaterialCommunityIconsIcon
+                name="home">
+              </MaterialCommunityIconsIcon>
+              <Text>Homepage</Text>
+              
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={stylesFooter.btnWrapper2}
+              onPress={() => this.props.navigation.navigate('Baihoc')}>
+              <IoniconsIcon name="ios-book" style={stylesFooter.icon1}></IoniconsIcon>
+              <Text style={stylesFooter.baiHọc}>Bài học</Text>
+              
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={stylesFooter.btnWrapper4}
+              onPress={() => this.props.navigation.navigate('Ontap')}>
+              <MaterialCommunityIconsIcon
+                name="book-open-variant"
+                style={stylesFooter.icon3}
+              ></MaterialCommunityIconsIcon>
+              <Text style={stylesFooter.onTap}>Ôn tập</Text>
+              
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={stylesFooter.btnWrapper3}
+              onPress={() => this.props.navigation.navigate('Thongke')}>
+              <MaterialCommunityIconsIcon
+                name="poll"
+                style={stylesFooter.icon2}
+              ></MaterialCommunityIconsIcon>
+              <Text style={stylesFooter.thongKe}>Thống kê</Text>
+              
+            </TouchableOpacity>
+          </View>
+          
+
+          {/* Left side login button or menu */}
+          <TouchableOpacity
+            style={styles.button}
+            onPress = {() => this.props.navigation.navigate('SidemenuNotloggedin')}>
             <ImageBackground
               source={require("../assets/images/button-012.png")}
               resizeMode="contain"
@@ -53,7 +105,11 @@ class Mainactivity extends Component {
               <FeatherIcon name="menu" style={styles.icon}></FeatherIcon>
             </ImageBackground>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button2}>
+          
+          {/* Right side setting button */}
+          <TouchableOpacity
+            style={styles.button2}
+            onPress = {() => this.props.navigation.navigate('Setting')}>
             <ImageBackground
               source={require("../assets/images/button-013.png")}
               resizeMode="contain"
@@ -82,20 +138,20 @@ const styles = StyleSheet.create({
   },
   image_imageStyle: {},
   chaoMung: {
-    fontFamily: "Avenir",
+    
     color: "rgba(255,255,255,1)",
     fontSize: 35,
     marginTop: 138,
     marginLeft: 24
   },
   userDaQuayTroLai: {
-    fontFamily: "Avenir",
+    
     color: "rgba(255,255,255,1)",
     fontSize: 25,
     marginLeft: 50
   },
   loremIpsum: {
-    fontFamily: "Avenir",
+    
     color: "#121212",
     fontSize: 20,
     marginTop: 135,
@@ -112,7 +168,7 @@ const styles = StyleSheet.create({
     height: 90
   },
   noteForDev: {
-    fontFamily: "Avenir",
+    
     color: "#121212",
     opacity: 0,
     marginLeft: -142
@@ -171,6 +227,81 @@ const styles = StyleSheet.create({
     height: height,
     marginTop: -28,
     marginLeft: -102
+  }
+});
+
+const stylesFooter = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    width: "100%"
+  },
+  btnWrapper1: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  icon: {
+    backgroundColor: "transparent",
+    fontSize: 24,
+    opacity: 0.8
+  },
+  homepage: {
+    fontSize: 12,
+    backgroundColor: "transparent",
+    paddingTop: 4
+  },
+  btnWrapper2: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  icon1: {
+    backgroundColor: "transparent",
+    color: "rgba(243,239,239,1)",
+    fontSize: 24,
+    opacity: 0.8
+  },
+  baiHọc: {
+    fontSize: 12,
+    color: "rgba(255,255,255,1)",
+    backgroundColor: "transparent",
+    paddingTop: 4
+  },
+  btnWrapper4: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  icon3: {
+    backgroundColor: "transparent",
+    color: "rgba(236,236,236,1)",
+    fontSize: 24,
+    opacity: 0.8,
+    width: 24,
+    height: 26
+  },
+  onTap: {
+    fontSize: 12,
+    color: "rgba(255,255,255,1)",
+    backgroundColor: "transparent",
+    paddingTop: 4
+  },
+  btnWrapper3: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  icon2: {
+    backgroundColor: "transparent",
+    color: "rgba(239,239,239,1)",
+    fontSize: 24,
+    opacity: 0.8
+  },
+  thongKe: {
+    fontSize: 12,
+    color: "rgba(255,255,255,1)",
+    backgroundColor: "transparent",
+    paddingTop: 4
   }
 });
 

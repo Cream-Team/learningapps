@@ -9,7 +9,7 @@ class Baihoc extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <View style={styles.mainAppFooterStack}>
+        {/* <View style={styles.mainAppFooterStack}>
           <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
           <View style={styles.scrollArea}>
             <ScrollView
@@ -27,7 +27,10 @@ class Baihoc extends Component {
              
             </ScrollView>
           </View>
-        </View>
+        </View> */}
+        <Text>
+          Hello
+        </Text>
       </View>
     );
   }
