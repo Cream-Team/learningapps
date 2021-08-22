@@ -29,6 +29,10 @@ class SidemenuNotloggedin extends Component {
     };
   }
 
+  gotoMain() {
+    this.props.navigation.navigate('Mainactivity')
+  }
+
   onSuccess() {
     Alert.alert(
         'Thông báo',
@@ -58,6 +62,7 @@ class SidemenuNotloggedin extends Component {
           global.onSignIn = res.user;
           saveToken(res.token);
           this.onSuccess();
+          this.gotoMain();
       })
       .catch(err => {
         console.log(err)
