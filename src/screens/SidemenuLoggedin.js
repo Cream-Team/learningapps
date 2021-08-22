@@ -45,7 +45,9 @@ class SidemenuLoggedin extends Component {
                 source={require("../assets/images/button-011.png")}
                 resizeMode="contain"
                 style={styles.image3}
-              ></Image>
+              >
+                Text
+              </Image>
               <Image
                 source={require("../assets/images/button-011.png")}
                 resizeMode="contain"
