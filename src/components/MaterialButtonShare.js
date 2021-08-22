@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 function MaterialButtonShare(props) {
   return (
-    <TouchableOpacity style={[styles.container, props.style]}>
+    <View style={[styles.container, props.style]}>
       <Icon name={props.icon || "share-variant"} style={styles.icon}></Icon>
-    </TouchableOpacity>
+    </View>
   );
 }
 

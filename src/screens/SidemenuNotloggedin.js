@@ -15,6 +15,7 @@ import Logo1 from "../components/Logo1";
 import MaterialButtonShare from "../components/MaterialButtonShare";
 import global from '../global';
 import signIn from '../api/signIn';
+import saveToken from '../api/saveToken';
 
 const { width, height } = Dimensions.get('window'); 
 
@@ -31,7 +32,7 @@ class SidemenuNotloggedin extends Component {
   onSuccess() {
     Alert.alert(
         'Thông báo',
-        'Sign ip successfully',
+        'Sign in successfully',
         [
             { text: 'OK' }
         ],
@@ -42,7 +43,7 @@ class SidemenuNotloggedin extends Component {
   onFail() {
     Alert.alert(
         'Thông báo',
-        'Sign ip Failed',
+        'Sign in Failed',
         [
             { text: 'OK' }
         ],
@@ -52,18 +53,16 @@ class SidemenuNotloggedin extends Component {
 
   onSignIn() {
     const { email, password } = this.state;
-    this.onSuccess();
-    console.log(123);
-    // signIn(email, password)
-    //   .then(res => {
-          
-    //       global.onSignIn(res.user);
-    //       saveToken(res.token);
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //     this.onFail();
-    //   });
+    signIn(email, password)
+      .then(res => {
+          global.onSignIn = res.user;
+          saveToken(res.token);
+          this.onSuccess();
+      })
+      .catch(err => {
+        console.log(err)
+        this.onFail();
+      });
   }
 
   render() {
@@ -102,12 +101,14 @@ class SidemenuNotloggedin extends Component {
               value={password}
             ></TextInput>
           </View>
-          <MaterialButtonShare
-            iconName="share-variant"
-            icon="login"
-            style={styles.loginButton}
-            // onPress={this.onSignIn.bind(this)}
-          ></MaterialButtonShare>
+          <TouchableOpacity
+            onPress={this.onSignIn.bind(this)}>
+            <MaterialButtonShare
+              iconName="share-variant"
+              icon="login"
+              style={styles.loginButton}
+            ></MaterialButtonShare>
+          </TouchableOpacity>
           <View style={styles.group}>
             <View style={styles.dangkybtnRow}>
               <TouchableOpacity style={styles.dangkybtn}>
