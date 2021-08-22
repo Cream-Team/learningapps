@@ -6,7 +6,9 @@ import Icon from "react-native-vector-icons/Ionicons";
 const { width, height } = Dimensions.get('window'); 
 
 class SidemenuLoggedin extends Component {
+
   render() {
+    
     return (
       <View style={styles.container}>
         <StatusBar  />

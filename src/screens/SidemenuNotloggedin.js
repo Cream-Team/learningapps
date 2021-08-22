@@ -8,15 +8,66 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
-  Text
+  Text,
+  Alert
 } from "react-native";
 import Logo1 from "../components/Logo1";
 import MaterialButtonShare from "../components/MaterialButtonShare";
+import global from '../global';
+import signIn from '../api/signIn';
 
 const { width, height } = Dimensions.get('window'); 
 
 class SidemenuNotloggedin extends Component {
+
+  constructor(props) {
+    super();
+    this.state = { 
+      email: '',
+      password: ''
+    };
+  }
+
+  onSuccess() {
+    Alert.alert(
+        'Thông báo',
+        'Sign ip successfully',
+        [
+            { text: 'OK' }
+        ],
+        { cancelable: false }
+    );
+  }
+
+  onFail() {
+    Alert.alert(
+        'Thông báo',
+        'Sign ip Failed',
+        [
+            { text: 'OK' }
+        ],
+        { cancelable: false }
+    );
+  }
+
+  onSignIn() {
+    const { email, password } = this.state;
+    this.onSuccess();
+    console.log(123);
+    // signIn(email, password)
+    //   .then(res => {
+          
+    //       global.onSignIn(res.user);
+    //       saveToken(res.token);
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     this.onFail();
+    //   });
+  }
+
   render() {
+    const { email, password } = this.state;
     return (
       <View style={styles.container}>
         <StatusBar hidden />
@@ -36,6 +87,8 @@ class SidemenuNotloggedin extends Component {
               defaultValue=""
               keyboardType="email-address"
               style={styles.textInput}
+              onChangeText={text => this.setState({ email: text })}
+              value={email}
             ></TextInput>
           </View>
           <View style={styles.rect3}>
@@ -46,12 +99,15 @@ class SidemenuNotloggedin extends Component {
               enablesReturnKeyAutomatically={true}
               blurOnSubmit={true}
               style={styles.textInput2}
+              onChangeText={text => this.setState({ password: text })}
+              value={password}
             ></TextInput>
           </View>
           <MaterialButtonShare
             iconName="share-variant"
             icon="login"
             style={styles.loginButton}
+            // onPress={this.onSignIn.bind(this)}
           ></MaterialButtonShare>
           <View style={styles.group}>
             <View style={styles.dangkybtnRow}>

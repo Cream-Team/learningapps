@@ -19,9 +19,9 @@ import Videos from './src/screens/Videos';
 import ExtendLink from './src/screens/ExtendLink';
 
 const DrawerNavigation = createDrawerNavigator({
-  Mainactivity: Mainactivity,
   SidemenuNotloggedin: SidemenuNotloggedin,
   SidemenuLoggedin: SidemenuLoggedin,
+  Mainactivity: Mainactivity,
   Ontap: Ontap,
   Baihoc: Baihoc,
   Thongke: Thongke,
@@ -44,8 +44,8 @@ const StackNavigation = createStackNavigator(
   },
 );
 
-const loadResourcesAsync = async () => {
-  return await StackNavigation;
+const loadResourcesAsync = () => {
+  return StackNavigation;
 }
 
 const AppContainer = createAppContainer(StackNavigation);
