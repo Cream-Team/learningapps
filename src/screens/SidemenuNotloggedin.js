@@ -59,10 +59,15 @@ class SidemenuNotloggedin extends Component {
     const { email, password } = this.state;
     signIn(email, password)
       .then(res => {
+        if(res.user) {
           global.onSignIn = res.user;
-          saveToken(res.token);
+          saveToken(res.access_token);
           this.onSuccess();
           this.gotoMain();
+        } else {
+          console.log(res)
+          this.onFail();
+        }
       })
       .catch(err => {
         console.log(err)
