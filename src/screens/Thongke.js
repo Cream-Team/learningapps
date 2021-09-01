@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View, Text } from "react-native";
 import MainAppFooter from "../components/MainAppFooter";
 
 class Thongke extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <MainAppFooter style={styles.mainAppFooter}></MainAppFooter>
-      </View>
+      <SafeAreaView>
+        <Text>
+          Username: 
+        </Text>
+
+        <Text>
+          Password: 
+        </Text>
+      </SafeAreaView>
     );
   }
 }
