@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     marginLeft: width/6
   },
   textInput: {
-    fontFamily: "Avenir",
+    
     color: "rgba(255,255,255,1)",
     width: 92,
     height: 17
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     marginLeft: width/6
   },
   textInput2: {
-    fontFamily: "Avenir",
+    
     color: "rgba(255,255,255,1)",
     width: 58,
     height: 17
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   dangKy: {
-    fontFamily: "Avenir",
+    
     color: "rgba(255,255,255,1)"
   },
   forgotpwd: {
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   quenMatKhau: {
-    fontFamily: "Avenir",
+    
     color: "rgba(255,255,255,1)"
   },
   dangkybtnRow: {

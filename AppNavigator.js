@@ -7,6 +7,7 @@ import Baihoc from './src/screens/Baihoc';
 import Ontap from './src/screens/Ontap';
 import Thongke from './src/screens/Thongke';
 import Setting from './src/screens/Setting';
+import SignUp from './src/screens/SignUp';
 
 const HomeNavigator = createStackNavigator({
     Mainactivity: {
@@ -60,13 +61,22 @@ const SettingNavigator = createStackNavigator({
     }
 });
 
+const SignUpNavigator = createStackNavigator({
+    SignUp: {
+        screen: SignUp,
+        navigationOptions: {
+            headerShown: false
+        }
+    }
+});
+
 const AppNavigator = createStackNavigator({
     HomeNavigator,
     BaiHocNavigator,
     OntapNavigator,
     ThongkeNavigator,
     LoginNavigator,
-    SettingNavigator
+    SignUpNavigator
 });
 
 /* BottomTabNavigator require React Native 5 but App is 4 */

@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     width: 360
   },
   danhSachMonHọc: {
-    fontFamily: "Avenir",
+    
     color: "#121212",
     fontSize: 30,
     marginTop: 32,

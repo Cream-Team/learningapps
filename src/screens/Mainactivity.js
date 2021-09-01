@@ -6,7 +6,8 @@ import {
   Image,
   ImageBackground,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 
 import Svg, { Ellipse } from "react-native-svg";
@@ -14,13 +15,15 @@ import MainAppFooter from "../components/MainAppFooter";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import SidemenuNotloggedin from "./SidemenuNotloggedin";
 
 const { width, height } = Dimensions.get('window'); 
 
 class Mainactivity extends Component {
   render (){
-    
+    const Drawer = createDrawerNavigator();
     return (
       <View style={styles.container}>
         <View style={styles.imageStack}>
@@ -105,11 +108,11 @@ class Mainactivity extends Component {
               <FeatherIcon name="menu" style={styles.icon}></FeatherIcon>
             </ImageBackground>
           </TouchableOpacity>
-          
+
           {/* Right side setting button */}
           <TouchableOpacity
             style={styles.button2}
-            onPress = {() => this.props.navigation.navigate('Setting')}>
+            onPress = {() => this.props.navigation.navigate('SignUp')}>
             <ImageBackground
               source={require("../assets/images/button-013.png")}
               resizeMode="contain"
