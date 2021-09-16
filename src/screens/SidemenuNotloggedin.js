@@ -8,15 +8,75 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
-  Text
+  Text,
+  Alert
 } from "react-native";
 import Logo1 from "../components/Logo1";
 import MaterialButtonShare from "../components/MaterialButtonShare";
+import global from '../global';
+import signIn from '../api/signIn';
+import saveToken from '../api/saveToken';
 
 const { width, height } = Dimensions.get('window'); 
 
 class SidemenuNotloggedin extends Component {
+
+  constructor(props) {
+    super();
+    this.state = { 
+      email: '',
+      password: ''
+    };
+  }
+
+  gotoMain() {
+    this.props.navigation.navigate('Mainactivity')
+  }
+
+  onSuccess() {
+    Alert.alert(
+        'Thông báo',
+        'Sign in successfully',
+        [
+            { text: 'OK' }
+        ],
+        { cancelable: false }
+    );
+  }
+
+  onFail() {
+    Alert.alert(
+        'Thông báo',
+        'Sign in Failed',
+        [
+            { text: 'OK' }
+        ],
+        { cancelable: false }
+    );
+  }
+
+  onSignIn() {
+    const { email, password } = this.state;
+    signIn(email, password)
+      .then(res => {
+        if(res.user) {
+          global.onSignIn = res.user;
+          saveToken(res.access_token);
+          this.onSuccess();
+          this.gotoMain();
+        } else {
+          console.log(res)
+          this.onFail();
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        this.onFail();
+      });
+  }
+
   render() {
+    const { email, password } = this.state;
     return (
       <View style={styles.container}>
         <StatusBar hidden />
@@ -29,30 +89,36 @@ class SidemenuNotloggedin extends Component {
           <Logo1 style={styles.logo1}></Logo1>
           <View style={styles.rect2}>
             <TextInput
-              placeholder="Tên đăng nhập"
+              Text="user"
               textBreakStrategy="highQuality"
-              placeholderTextColor="rgba(230, 230, 230,1)"
               enablesReturnKeyAutomatically={true}
               defaultValue=""
               keyboardType="email-address"
               style={styles.textInput}
+              onChangeText={text => this.setState({ email: text })}
+              value={email}
             ></TextInput>
           </View>
           <View style={styles.rect3}>
             <TextInput
-              placeholder="Mật khẩu"
-              placeholderTextColor="rgba(255,255,255,1)"
+              Text="1234"
+              textContentType="password"
               secureTextEntry={true}
               enablesReturnKeyAutomatically={true}
               blurOnSubmit={true}
               style={styles.textInput2}
+              onChangeText={text => this.setState({ password: text })}
+              value={password}
             ></TextInput>
           </View>
-          <MaterialButtonShare
-            iconName="share-variant"
-            icon="login"
-            style={styles.loginButton}
-          ></MaterialButtonShare>
+          <TouchableOpacity
+            onPress={this.onSignIn.bind(this)}>
+            <MaterialButtonShare
+              iconName="share-variant"
+              icon="login"
+              style={styles.loginButton}
+            ></MaterialButtonShare>
+          </TouchableOpacity>
           <View style={styles.group}>
             <View style={styles.dangkybtnRow}>
               <TouchableOpacity style={styles.dangkybtn}>

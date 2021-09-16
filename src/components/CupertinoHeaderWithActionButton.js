@@ -17,7 +17,7 @@ function CupertinoHeaderWithActionButton(props) {
         </TouchableOpacity>
       </View>
       <View style={styles.textWrapper}>
-        <LsTitle style={styles.lsTitle}></LsTitle>
+        <Text>SomeThing</Text>
       </View>
       <View style={styles.rightWrapper}>
         <TouchableOpacity style={styles.rightIconButton}>
@@ -63,10 +63,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
-  },
-  lsTitle: {
-    height: 17,
-    width: 40
   },
   rightWrapper: {
     flex: 1,
